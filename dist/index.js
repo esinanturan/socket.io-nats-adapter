@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NatsIoClient = exports.NatsIoAdapter = exports.createAdapter = void 0;
 const NatsIoClient_1 = __importDefault(require("./service/NatsIoClient"));
-const adapter_1 = __importDefault(require("./adapter"));
-exports.createAdapter = createAdapter;
-exports.NatsIoAdapter = adapter_1.default;
 exports.NatsIoClient = NatsIoClient_1.default;
+const adapter_1 = __importDefault(require("./adapter"));
+exports.NatsIoAdapter = adapter_1.default;
 /**
  * Returns a function that will create a NatsIoAdapter instance
  *
@@ -20,3 +20,4 @@ function createAdapter(natsIoClient) {
         return new adapter_1.default(nsp, natsIoClient);
     };
 }
+exports.createAdapter = createAdapter;
